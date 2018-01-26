@@ -22,7 +22,13 @@ public class FizzBuzzActivity extends AppCompatActivity {
     button.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        text.setText(FizzBuzz.count(Integer.parseInt(limit.getText().toString())));
+        int limitInt = 0;
+        try {
+          limitInt = Integer.parseInt(limit.getText().toString());
+        } catch (NumberFormatException e) {
+          e.printStackTrace();
+        }
+        text.setText(FizzBuzz.count(limitInt));
       }
     });
   }
